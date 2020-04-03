@@ -15,7 +15,7 @@ public class @InputControls : IInputActionCollection, IDisposable
     ""name"": ""InputControls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""Player"",
             ""id"": ""a727646f-9cb9-4c8b-bb3e-5cfd3c62f465"",
             ""actions"": [
                 {
@@ -230,11 +230,11 @@ public class @InputControls : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-        m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
-        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
@@ -284,39 +284,39 @@ public class @InputControls : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Move;
-    private readonly InputAction m_Gameplay_Rotate;
-    private readonly InputAction m_Gameplay_Interact;
-    public struct GameplayActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_Interact;
+    public struct PlayerActions
     {
         private @InputControls m_Wrapper;
-        public GameplayActions(@InputControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-        public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
-        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public PlayerActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -331,7 +331,7 @@ public class @InputControls : IInputActionCollection, IDisposable
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
 
     // Menu
     private readonly InputActionMap m_Menu;
@@ -383,7 +383,7 @@ public class @InputControls : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
-    public interface IGameplayActions
+    public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
