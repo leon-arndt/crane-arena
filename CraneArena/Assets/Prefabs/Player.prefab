@@ -130,11 +130,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TracksToRotate: {fileID: 3331395605148411739}
   m_CircleToRotate: {fileID: 8703563582528160022}
+  m_RigidbodyToApplyForces: {fileID: 6749508506151853001}
   m_MovementSpeed: 30
   m_TrackRotationSpeed: 60
   m_CircleRotationSpeed: 30
   useAngularVelocity: 1
   m_JumpForce: 10000
+  groundChecks: []
+  distanceToCheck: 1
 --- !u!1001 &495835758763982832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +242,12 @@ GameObject:
 --- !u!1 &3331395605148411739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2943930674739615915, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 495835758763982832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6749508506151853001 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6578243683915179065, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
     type: 3}
   m_PrefabInstance: {fileID: 495835758763982832}
   m_PrefabAsset: {fileID: 0}

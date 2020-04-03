@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,12 @@ public class CraneMovementController : MonoBehaviour
     [SerializeField] float m_CircleRotationSpeed = 30f;
     [SerializeField] bool useAngularVelocity = false;
     [Header("Jump Properties")]
-    [SerializeField] float m_JumpForce= 20f;
+    [SerializeField] float m_JumpForce = 20f;
+
+    [Header("GroundChecks")]
+    [SerializeField] private GameObject[] groundChecks = null;
+    [SerializeField] private float distanceToCheck = 1f;
+
     private Rigidbody m_Rigidbody = null;
 
     private float forwardValue = 0f;
@@ -23,7 +29,7 @@ public class CraneMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Rigidbody = GetComponentInChildren<Rigidbody>();
+        m_Rigidbody = m_TracksToRotate.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -51,7 +57,7 @@ public class CraneMovementController : MonoBehaviour
 
         m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
     }
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
         SetVelocity();
         RotateBody(m_TracksToRotate, trackRotationValue, m_TrackRotationSpeed);
@@ -62,9 +68,24 @@ public class CraneMovementController : MonoBehaviour
     {
         //Do ground Checks
         m_Rigidbody.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
+        if (CheckGround())
+        {
+        }
     }
 
-    private void RotateBody(GameObject bodyToRotate,float rotationValue, float rotationspeed)
+    private bool CheckGround()
+    {
+        var onGround = true;
+        foreach (var check in groundChecks)
+        {
+            var hit = Physics.Raycast(check.transform.position, Vector3.down * distanceToCheck);
+            if (!hit) { onGround = false; break; }
+
+        }
+        return onGround;
+    }
+
+    private void RotateBody(GameObject bodyToRotate, float rotationValue, float rotationspeed)
     {
         if (useAngularVelocity)
         {
