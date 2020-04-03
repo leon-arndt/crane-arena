@@ -25,7 +25,7 @@ public class CraneMovementController : MonoBehaviour
     private float forwardValue = 0f;
     private float trackRotationValue = 0f;
     private float circleRotationValue = 0f;
-
+    private bool bCanJump = true;
     #region UNITY EVENTS
     // Start is called before the first frame update
     void Start()
@@ -54,8 +54,8 @@ public class CraneMovementController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         //check grounded 
+        if (!CheckGround()) { return; }
         //check used jump
-
         m_RigidbodyTracks.AddForce(Vector3.up * m_JumpForce);
     }
     private void FixedUpdate()
@@ -68,10 +68,9 @@ public class CraneMovementController : MonoBehaviour
     private void SetVelocity()
     {
         //Do ground Checks
+        if (!CheckGround()){ return; }
         m_RigidbodyTracks.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
-        if (CheckGround())
-        {
-        }
+        
     }
 
     private bool CheckGround()
@@ -79,9 +78,10 @@ public class CraneMovementController : MonoBehaviour
         var onGround = true;
         foreach (var check in groundChecks)
         {
-            var hit = Physics.Raycast(check.transform.position, Vector3.down * distanceToCheck);
+            Debug.DrawLine(check.transform.position, check.transform.position + check.transform.up * -1 * distanceToCheck);
+            var hit = Physics.Raycast(check.transform.position, check.transform.up*-1 * distanceToCheck,1<<LayerMask.NameToLayer("Default"));
             if (!hit) { onGround = false; break; }
-
+            Debug.Log("hello"+onGround);
         }
         return onGround;
     }

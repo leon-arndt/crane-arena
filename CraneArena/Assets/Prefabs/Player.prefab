@@ -135,8 +135,10 @@ MonoBehaviour:
   useAngularVelocity: 1
   m_CircleRotationSpeed: 200
   m_JumpForce: 10000
-  groundChecks: []
-  distanceToCheck: 1
+  groundChecks:
+  - {fileID: 1635586254704618260}
+  - {fileID: 5402660822322262064}
+  distanceToCheck: 0.1
 --- !u!1001 &495835758763982832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,15 +234,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 495835758763982832}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8703563582528160022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9090739091062800102, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 495835758763982832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3331395605148411739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2943930674739615915, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 495835758763982832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1635586254704618260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1176366351103431908, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 495835758763982832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5402660822322262064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5484140362150711232, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 495835758763982832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8703563582528160022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9090739091062800102, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
     type: 3}
   m_PrefabInstance: {fileID: 495835758763982832}
   m_PrefabAsset: {fileID: 0}
