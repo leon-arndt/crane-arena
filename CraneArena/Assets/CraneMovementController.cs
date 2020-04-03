@@ -10,8 +10,8 @@ public class CraneMovementController : MonoBehaviour
     [Header("Movement Properties")]
     [SerializeField] float m_MovementSpeed = 20f;
     [SerializeField] float m_TrackRotationSpeed = 40f;
-    [SerializeField] float m_CircleRotationSpeed = 30f;
     [SerializeField] bool useAngularVelocity = false;
+    [SerializeField] float m_CircleRotationSpeed = 30f;
     [Header("Jump Properties")]
     [SerializeField] float m_JumpForce = 20f;
 
@@ -19,7 +19,8 @@ public class CraneMovementController : MonoBehaviour
     [SerializeField] private GameObject[] groundChecks = null;
     [SerializeField] private float distanceToCheck = 1f;
 
-    private Rigidbody m_Rigidbody = null;
+    private Rigidbody m_RigidbodyTracks = null;
+    private Rigidbody m_RigidbodyCircle = null;
 
     private float forwardValue = 0f;
     private float trackRotationValue = 0f;
@@ -29,7 +30,8 @@ public class CraneMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Rigidbody = m_TracksToRotate.GetComponent<Rigidbody>();
+        m_RigidbodyTracks = m_TracksToRotate.GetComponent<Rigidbody>();
+        m_RigidbodyCircle = m_CircleToRotate.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,27 +49,26 @@ public class CraneMovementController : MonoBehaviour
 
     public void OnRotate(InputValue value)
     {
-        float trueValue = value.Get<float>();
-        circleRotationValue = trueValue;
+        circleRotationValue = value.Get<float>();
     }
     public void OnJump(InputValue value)
     {
         //check grounded 
         //check used jump
 
-        m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
+        m_RigidbodyTracks.AddForce(Vector3.up * m_JumpForce);
     }
     private void FixedUpdate()
     {
         SetVelocity();
-        RotateBody(m_TracksToRotate, trackRotationValue, m_TrackRotationSpeed);
-        RotateBody(m_CircleToRotate, circleRotationValue, m_CircleRotationSpeed);
+        RotateBody(m_TracksToRotate, m_RigidbodyTracks, trackRotationValue, m_TrackRotationSpeed,useAngularVelocity);
+        RotateBody(m_CircleToRotate, m_RigidbodyCircle, circleRotationValue, m_CircleRotationSpeed,false);
     }
 
     private void SetVelocity()
     {
         //Do ground Checks
-        m_Rigidbody.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
+        m_RigidbodyTracks.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
         if (CheckGround())
         {
         }
@@ -85,11 +86,11 @@ public class CraneMovementController : MonoBehaviour
         return onGround;
     }
 
-    private void RotateBody(GameObject bodyToRotate, float rotationValue, float rotationspeed)
+    private void RotateBody(GameObject bodyToRotate, Rigidbody rigidbody, float rotationValue, float rotationspeed, bool useAngular)
     {
-        if (useAngularVelocity)
+        if (useAngular)
         {
-            m_Rigidbody.angularVelocity += bodyToRotate.transform.up * rotationValue * rotationspeed * Time.deltaTime;
+            rigidbody.angularVelocity += bodyToRotate.transform.up * rotationValue * rotationspeed * Time.deltaTime;
         }
         else
         {

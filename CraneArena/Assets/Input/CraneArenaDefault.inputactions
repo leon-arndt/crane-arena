@@ -31,9 +31,9 @@
                 },
                 {
                     "name": "Rotate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "ec4de9fb-0a2b-4336-8953-de028317b0ac",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
