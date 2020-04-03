@@ -128,10 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f18da68a17990642ba22a5ec68d6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BodyToRotate: {fileID: 3331395605148411739}
+  m_TracksToRotate: {fileID: 3331395605148411739}
+  m_CircleToRotate: {fileID: 8703563582528160022}
   m_MovementSpeed: 40
-  m_RotationSpeed: 54.21
+  m_TrackRotationSpeed: 40
+  m_CircleRotationSpeed: 30
   useAngularVelocity: 0
+  m_JumpForce: 10000
 --- !u!1001 &495835758763982832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +227,12 @@ PrefabInstance:
 --- !u!4 &2337495696995608463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2779279579833784447, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 495835758763982832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8703563582528160022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9090739091062800102, guid: 02ae71ca8f89efc44825b739bf2bc7a4,
     type: 3}
   m_PrefabInstance: {fileID: 495835758763982832}
   m_PrefabAsset: {fileID: 0}
