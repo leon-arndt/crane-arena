@@ -89,7 +89,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     /// </summary>
     public void StartRound()
     {
-        playersAlive = m_Players;
+        playersAlive.Clear();
+        foreach (var player  in m_Players)
+        {
+            playersAlive.Add(player);
+        }
         
         foreach (var player in m_Players)
         {
