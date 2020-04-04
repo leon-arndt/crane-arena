@@ -18,5 +18,5 @@ public enum SoundEventEnum
 public class SoundDictionary : SerializedScriptableObject
 {
     // The public dictionary to hold the pairings
-    public Dictionary<SoundEvent, AudioClip> references;
+    public Dictionary<SoundEventEnum, AudioClip> references;
 }

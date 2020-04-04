@@ -23,11 +23,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: references
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[SoundDictionary+EventName,
-        Assembly-CSharp],[UnityEngine.AudioClip, UnityEngine.AudioModule]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[SoundEventEnum, Assembly-CSharp],[UnityEngine.AudioClip,
+        UnityEngine.AudioModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SoundDictionary+EventName,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SoundEventEnum,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -58,7 +58,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 6
       Data: 
