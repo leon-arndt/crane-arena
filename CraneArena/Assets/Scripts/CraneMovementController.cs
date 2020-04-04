@@ -85,7 +85,7 @@ public class CraneMovementController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         //check grounded 
-        if (!CheckGround() && !bCanJump) { return; }
+        if (!CheckGround() || !bCanJump) { return; }
         //check used jump
         m_RigidbodyTracks.AddForce(Vector3.up * m_JumpForce);
         bCanJump = false;
@@ -129,6 +129,7 @@ public class CraneMovementController : MonoBehaviour
             var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Default"));
             if (!hit) { onGround = false; break; }
         }
+
         return onGround;
     }
 
