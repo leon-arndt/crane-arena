@@ -21,12 +21,18 @@ public class HazardSpawner : MonoBehaviourSingleton<HazardSpawner>
         hazard.transform.position = new Vector3(0, 20, 0);
     }
 
+    public void StartSpawning()
+    {
+        StartCoroutine(SpawnHazardRoutine());
+    }
+
     IEnumerator SpawnHazardRoutine()
     {
         if (GameManager.Instance.timeLeft > 10f)
         {
             SpawnHazard();
         }
+
         yield return new WaitForSeconds(10f); 
     }
 }
