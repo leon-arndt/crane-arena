@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private GameObject m_ReadyIndicator = null;
     [SerializeField] private float waitForRespawn = 2f;
 
     private Transform m_SpawnPos = null;
@@ -93,5 +94,9 @@ public class PlayerManager : MonoBehaviour
         onPlayerReady(this);
         //show ready confirmation
 
+    }
+
+    public void SpawnIndicator(){
+        Instantiate(m_ReadyIndicator, transform);
     }
 }

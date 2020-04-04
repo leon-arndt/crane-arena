@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -88,18 +89,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     /// </summary>
     public void StartRound()
     {
-
-        playersAlive = m_Players;
+        playersAlive.Clear();
+        foreach (var player  in m_Players)
+        {
+            playersAlive.Add(player);
+        }
+        
         foreach (var player in m_Players)
         {
-            if (player.CreateCrane(m_CorrespondingCranesToSpawn[currentIndex]))
-            {
-                player.SpawnPos = m_SpawnPositions[currentIndex];
-                player.transform.position = player.SpawnPos.position;
-                player.transform.rotation = player.SpawnPos.rotation;
-                currentIndex++;
-            }
+            Destroy(player.transform.GetChild(0).gameObject);
+            player.Respawn();
         }
+        Debug.Log("Started Round");
     }
 
     /// <summary>
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         //set player dead
         playersAlive.Remove(player);
+
         //check if all player dead
         if (playersAlive.Count == 1)
         {
@@ -117,19 +119,30 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Winner: "+playerId);
             ScoreTracker.IncreaseScoreByOne(playerId);
 
-            StartRound();//#TODO: add delay with animations
+
+            //#TODO: Destroy Player Crane
+            StartCoroutine(StartRoundAfterDelay(0.1f));//#TODO: add delay with animations
         }
     }
+
+    private IEnumerator StartRoundAfterDelay(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+
+        StartRound();
+    }
+
     public void OnPlayerReady(PlayerManager player)
     {
         if (playersReady.Contains(player)) { return; }
 
+        player.SpawnIndicator();
         playersReady.Add(player);
 
         if (playersReady.Count != m_Players.Count) { return; }
 
         StartRound();
-        Debug.Log("Started Round");
+        
 
     }
 }

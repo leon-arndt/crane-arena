@@ -150,4 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e190989379e58be41aaf224b4722e57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ReadyIndicator: {fileID: 7408942231118073976, guid: 6221428e9a2772a49983d7d5687da868,
+    type: 3}
   waitForRespawn: 2
