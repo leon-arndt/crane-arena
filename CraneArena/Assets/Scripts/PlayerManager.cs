@@ -97,6 +97,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void SpawnIndicator(){
-        Instantiate(m_ReadyIndicator, transform);
+        GameObject indicator = Instantiate(m_ReadyIndicator, transform);
+
+        //setup indicator
+        indicator.GetComponent<ReadyIndicator>().Own(transform);
     }
 }

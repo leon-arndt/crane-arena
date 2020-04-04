@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class ReadyIndicator : MonoBehaviour
 {
+    Transform playerOwner;
+
     public static List<ReadyIndicator> indicators = new List<ReadyIndicator>();
 
     // Start is called before the first frame update
@@ -15,11 +17,21 @@ public class ReadyIndicator : MonoBehaviour
         indicators.Add(this);
     }
 
+    private void Update()
+    {
+        transform.LookAt(Camera.main.transform);
+        transform.position = playerOwner.position + 2f * Vector3.up;
+    }
     public static void DestroyAll()
     {
         foreach (var item in indicators)
         {
             Destroy(item.gameObject);
         }
+    }
+
+    public void Own(Transform newOwner)
+    {
+        playerOwner = newOwner;
     }
 }
