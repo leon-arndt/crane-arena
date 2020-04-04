@@ -1400,6 +1400,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 317075515}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &538845916 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 6201352925782289013, guid: eb48f0514ed4051469dd5d7edf384256,
+    type: 3}
+  m_PrefabInstance: {fileID: 966160576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &561922080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8316,6 +8322,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7507843873584434186, guid: eb48f0514ed4051469dd5d7edf384256,
+        type: 3}
+      propertyPath: m_defaultCanvasGroup
+      value: 
+      objectReference: {fileID: 538845916}
+    - target: {fileID: 7507843873584434186, guid: eb48f0514ed4051469dd5d7edf384256,
+        type: 3}
+      propertyPath: m_GameCanvasGroup
+      value: 
+      objectReference: {fileID: 1384102734}
     - target: {fileID: 7764770906397715588, guid: eb48f0514ed4051469dd5d7edf384256,
         type: 3}
       propertyPath: m_Name
@@ -9941,6 +9957,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9106878948749614162, guid: fdb8fef9ca0999742bfe82883a1b2e04,
     type: 3}
   m_PrefabInstance: {fileID: 1178978064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1384102734 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1022656171001283872, guid: eb48f0514ed4051469dd5d7edf384256,
+    type: 3}
+  m_PrefabInstance: {fileID: 966160576}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1387907793
 PrefabInstance:
