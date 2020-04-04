@@ -19,6 +19,10 @@ public class HazardSpawner : MonoBehaviourSingleton<HazardSpawner>
 
         //update hazard position
         hazard.transform.position = new Vector3(0, 20, 0);
+
+        //update hazard rotation
+        float randomY = Random.Range(0f, 360f);
+        hazard.transform.rotation = Quaternion.Euler(new Vector3(0f, randomY, 0f));
     }
 
     public void StartSpawning()
