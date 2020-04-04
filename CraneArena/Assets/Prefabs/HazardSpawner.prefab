@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fb378a496511f4fa25d1f185a7da96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazardPrefabs: []
+  hazardPrefabs:
+  - {fileID: 4819296390987014191, guid: a76500b656cb3494eb64c481db102220, type: 3}
