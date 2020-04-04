@@ -17,6 +17,10 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
 
     [SerializeField]
     CanvasGroup m_GameCanvasGroup;
+
+    [SerializeField]
+    CanvasGroup m_winnerCanvasGroup;
+
     private void Start()
     {
         OpenDefaultPanel(); 
@@ -49,5 +53,10 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
     internal static void ShowGamePanel()
     {
         SetActiveGroup(Instance.m_GameCanvasGroup.name);
+    }
+
+    internal static void ShowWinnerPanel()
+    {
+        SetActiveGroup(Instance.m_winnerCanvasGroup.name);
     }
 }
