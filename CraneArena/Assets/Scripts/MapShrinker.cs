@@ -24,6 +24,7 @@ public class MapShrinker : MonoBehaviourSingleton<MapShrinker>
 
     public static void ResetScale()
     {
+        Instance.transform.DOKill();
         Instance.transform.localScale = Instance.standardScale;
     }
 }
