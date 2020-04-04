@@ -158,6 +158,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         StartRound();
         m_HasStarted = true;
 
-
+        //destroy all indicators when the game begins
+        ReadyIndicator[] indicators = FindObjectsOfType<ReadyIndicator>();
+        foreach (var item in indicators)
+        {
+            Destroy(item.gameObject);
+        }
     }
 }
