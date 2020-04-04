@@ -44,6 +44,11 @@ public class PlayerManager : MonoBehaviour
         //disable movement
         m_MovementController.CanMove = false;
 
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         StartCoroutine(RespawnPlayer(waitForRespawn));
     }
 
@@ -51,22 +56,22 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWait);
 
-
-        transform.position = m_SpawnPos.position;
-        transform.rotation = m_SpawnPos.rotation;
+        var crane = Instantiate(cranePrefab, transform);
+        SetupCraneComponents(crane);
         m_MovementController.CanMove = true;
     }
 
     internal void Respawn()
     {
+        m_MovementController.CanMove = false;
 
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
-        var crane = Instantiate(cranePrefab, transform);
-        SetupCraneComponents(crane);
-        m_MovementController.CanMove = true;
+
+        StartCoroutine(RespawnPlayer(0.5f));
+       
         Debug.Log("Respawn!");
     }
 }

@@ -10,8 +10,13 @@ public class CraneMovementController : MonoBehaviour
     [Header("Movement Properties")]
     [SerializeField] float m_MovementSpeed = 20f;
     [SerializeField] float m_TrackRotationSpeed = 40f;
-    [SerializeField] bool useAngularVelocity = false;
+    [SerializeField] bool useAngularVelocityForTracks = false;
+
+
     [SerializeField] float m_CircleRotationSpeed = 30f;
+    [SerializeField] bool useAngularVelocityForCircle = false;
+
+
     [Header("Jump Properties")]
     [SerializeField] float m_JumpForce = 20f;
 
@@ -43,6 +48,7 @@ public class CraneMovementController : MonoBehaviour
         m_RigidbodyTracks = m_TracksToRotate.GetComponent<Rigidbody>();
         m_RigidbodyCircle = m_CircleToRotate.GetComponent<Rigidbody>();
 
+        m_GroundChecks.Clear();
         var groundchecks = GetComponentsInChildren<GroundCheck>();
 
         foreach (var check in groundchecks)
@@ -88,8 +94,8 @@ public class CraneMovementController : MonoBehaviour
         if (bCanMove)
         {
             SetVelocity();
-            RotateBody(m_TracksToRotate, m_RigidbodyTracks, trackRotationValue, m_TrackRotationSpeed, useAngularVelocity);
-            RotateBody(m_CircleToRotate, m_RigidbodyCircle, circleRotationValue, m_CircleRotationSpeed, false);
+            RotateBody(m_TracksToRotate, m_RigidbodyTracks, trackRotationValue, m_TrackRotationSpeed, useAngularVelocityForTracks);
+            RotateBody(m_CircleToRotate, m_RigidbodyCircle, circleRotationValue, m_CircleRotationSpeed, useAngularVelocityForCircle);
         }
     }
 
@@ -104,6 +110,7 @@ public class CraneMovementController : MonoBehaviour
     private bool CheckGround()
     {
         var onGround = true;
+
         foreach (var check in m_GroundChecks)
         {
             var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Default"));

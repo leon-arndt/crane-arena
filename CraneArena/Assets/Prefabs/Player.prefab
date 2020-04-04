@@ -132,12 +132,11 @@ MonoBehaviour:
   m_CircleToRotate: {fileID: 0}
   m_MovementSpeed: 30
   m_TrackRotationSpeed: 60
-  useAngularVelocity: 1
+  useAngularVelocityForTracks: 1
   m_CircleRotationSpeed: 500
+  useAngularVelocityForCircle: 1
   m_JumpForce: 10000
-  groundChecks:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_GroundChecks: []
   distanceToCheck: 0.1
 --- !u!114 &7958844041920923479
 MonoBehaviour:
