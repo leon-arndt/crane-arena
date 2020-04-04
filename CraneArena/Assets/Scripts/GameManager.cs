@@ -109,6 +109,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Destroy(player.transform.GetChild(0).gameObject);
             player.Respawn();
         }
+
+        //Reset map scaling
+        MapShrinker.ResetScale();
+
         Debug.Log("Started Round");
     }
 

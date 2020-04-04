@@ -9,10 +9,21 @@ using DG.Tweening;
 public class MapShrinker : MonoBehaviourSingleton<MapShrinker>
 {
     bool m_isShrinking;
+    Vector3 standardScale;
+
+    private void Start()
+    {
+        standardScale = transform.localScale;    
+    }
 
     public void StartShrinking(float duration)
     {
         m_isShrinking = true;
         transform.DOScale(0.2f, duration);
+    }
+
+    public static void ResetScale()
+    {
+        Instance.transform.localScale = Instance.standardScale;
     }
 }
