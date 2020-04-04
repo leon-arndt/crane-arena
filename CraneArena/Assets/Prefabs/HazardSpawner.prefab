@@ -44,4 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazardPrefabs:
-  - {fileID: 4819296390987014191, guid: a76500b656cb3494eb64c481db102220, type: 3}
+  - {fileID: 2800642093405115829, guid: 8c65e8f4cb3fc7948b9ee78dc475592e, type: 3}
+  - {fileID: 5686950301962950346, guid: 05e8e61bb15dde34d84a75e95ebb7676, type: 3}
+  - {fileID: 6109018113843142560, guid: 0b2f8cbec9c363749befac616845b4de, type: 3}
+  - {fileID: 8177358584285557817, guid: 621a65e10b2273a4ea3702822e3cab96, type: 3}
+  - {fileID: 9123838872283759380, guid: 0bfea176e56b4164086d204322bc4fe5, type: 3}
+  - {fileID: 2719287688437461379, guid: 79bd6878a17d84947ab87e9245fb4746, type: 3}
+  - {fileID: 6395671620525009275, guid: 6f74684bdc90d4142bfd01d1f092b6cc, type: 3}
