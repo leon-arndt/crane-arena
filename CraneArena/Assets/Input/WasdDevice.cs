@@ -18,11 +18,11 @@ using UnityEditor;
 // of a "FourCC" (a 32-bit code comprised of four characters). Using
 // IInputStateTypeInfo we allow the system to get to the FourCC specific
 // to our struct.
-public struct ArrowKeysDeviceState : IInputStateTypeInfo
+public struct WasdDeviceState : IInputStateTypeInfo
 {
     // We use "CUST" here as our custom format code. It can be anything really.
     // Should be sufficiently unique to identify our memory format, though.
-    public FourCC format => new FourCC('L', 'E', 'O', 'N');
+    public FourCC format => new FourCC('F', 'R', 'O', 'G');
 
     // Next we just define fields that store the state for our input device.
     // The only thing really interesting here is the [InputControl] attributes.
@@ -139,12 +139,12 @@ public struct ArrowKeysDeviceState : IInputStateTypeInfo
 [InitializeOnLoad] // Call static class constructor in editor.
 #endif
 [InputControlLayout(stateType = typeof(ArrowKeysDeviceState))]
-public class ArrowKeysDevice : InputDevice, IInputUpdateCallbackReceiver
+public class WasdDevice : InputDevice, IInputUpdateCallbackReceiver
 {
     // [InitializeOnLoad] will ensure this gets called on every domain (re)load
     // in the editor.
     #if UNITY_EDITOR
-    static ArrowKeysDevice()
+    static WasdDevice()
     {
         // Trigger our RegisterLayout code in the editor.
         Initialize();
@@ -197,7 +197,7 @@ public class ArrowKeysDevice : InputDevice, IInputUpdateCallbackReceiver
     // We can also expose a '.current' getter equivalent to 'Gamepad.current'.
     // Whenever our device receives input, MakeCurrent() is called. So we can
     // simply update a '.current' getter based on that.
-    public static ArrowKeysDevice current { get; private set; }
+    public static WasdDevice current { get; private set; }
     public override void MakeCurrent()
     {
         base.MakeCurrent();
@@ -245,14 +245,14 @@ public class ArrowKeysDevice : InputDevice, IInputUpdateCallbackReceiver
     //       is unnecessary in that case as Unity will queue input for the device.
 
     #if UNITY_EDITOR
-    [MenuItem("Tools/Custom Device Sample/Create ArrowDevice")]
+    [MenuItem("Tools/Custom Device Sample/Create WasdDevice")]
     private static void CreateDevice()
     {
         // This is the code that you would normally run at the point where
         // you discover devices of your custom type.
         InputSystem.AddDevice(new InputDeviceDescription
         {
-            interfaceName = "CustomArrow",
+            interfaceName = "CustomWasd",
             product = "Sample Product"
         });
     }
@@ -263,7 +263,7 @@ public class ArrowKeysDevice : InputDevice, IInputUpdateCallbackReceiver
     [MenuItem("Tools/Custom Device Sample/Remove Device")]
     private static void RemoveDevice()
     {
-        var customDevice = InputSystem.devices.FirstOrDefault(x => x is ArrowKeysDevice);
+        var customDevice = InputSystem.devices.FirstOrDefault(x => x is WasdDevice);
         if (customDevice != null)
             InputSystem.RemoveDevice(customDevice);
     }
