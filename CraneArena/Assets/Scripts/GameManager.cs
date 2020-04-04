@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             timeLeft -= Time.deltaTime;
             StartRound();
 
-            float shrinkCountDown = 10f;
+            float shrinkCountDown = 20f;
             if (timeLeft < shrinkCountDown)
             {
                 MapShrinker.Instance.StartShrinking(shrinkCountDown);
