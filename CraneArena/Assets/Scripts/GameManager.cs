@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         // 
         //         }
 
+        timeLeft = 90f;
     }
     private void OnEnable()
     {
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Time ran out");
             timeLeft = 0f;
             roundOver = true;
+
+            CanvasGroupSwitcher.ShowWinnerPanel();
         }
     }
 
@@ -132,7 +135,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Winner: "+playerId);
             ScoreTracker.IncreaseScoreByOne(playerId);
 
-
+            CanvasGroupSwitcher.ShowWinnerPanel();
             //#TODO: Destroy Player Crane
             StartCoroutine(StartRoundAfterDelay(0.1f));//#TODO: add delay with animations
         }
