@@ -10,15 +10,18 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float waitForRespawn = 2f;
 
-    //TODO! Make this player id dynamic for each player
-    private int m_playerId = 0;
-
-    private CraneMovementController m_MovementController = null;
     private Transform m_SpawnPos = null;
-
     public Transform SpawnPos { get => m_SpawnPos; set => m_SpawnPos = value; }
 
+    private int m_Score = 0;
+    public int Score { get => m_Score; set => m_Score = value; }
+
+    private CraneMovementController m_MovementController = null;
+
+
     GameObject cranePrefab = null;
+    
+    public static event Action<PlayerManager> onPlayerDeath;
 
     // Update is called once per frame
     void Update()
@@ -49,20 +52,20 @@ public class PlayerManager : MonoBehaviour
         //disable movement
         m_MovementController.CanMove = false;
 
-        //update score
-        ScoreTracker.IncreaseOtherPlayer(m_playerId);
+        //player dead
 
-        StartCoroutine(RespawnPlayer(waitForRespawn));
+        onPlayerDeath(this);
+        
+        //StartCoroutine(RespawnPlayer(waitForRespawn));
+
     }
 
     private IEnumerator RespawnPlayer(float timeToWait)
     {
+        transform.DetachChildren();
         
         yield return new WaitForSeconds(timeToWait);
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+
         yield return new WaitForFixedUpdate();
         var crane = Instantiate(cranePrefab, transform);
         SetupCraneComponents(crane);
@@ -73,10 +76,7 @@ public class PlayerManager : MonoBehaviour
     {
         m_MovementController.CanMove = false;
 
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+        
 
         StartCoroutine(RespawnPlayer(0.5f));
        

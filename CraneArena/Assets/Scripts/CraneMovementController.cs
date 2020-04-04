@@ -85,10 +85,22 @@ public class CraneMovementController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         //check grounded 
-        if (!CheckGround()) { return; }
+        if (!CheckGround() &&!bCanJump) { return; }
         //check used jump
         m_RigidbodyTracks.AddForce(Vector3.up * m_JumpForce);
+        bCanJump = false;
+        StartCoroutine(setJumpAfterTime());
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator setJumpAfterTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        bCanJump = true;
+    }
+
     private void FixedUpdate()
     {
         if (bCanMove)
