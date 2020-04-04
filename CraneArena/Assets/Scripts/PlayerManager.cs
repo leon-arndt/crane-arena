@@ -100,6 +100,7 @@ public class PlayerManager : MonoBehaviour
         GameObject indicator = Instantiate(m_ReadyIndicator, transform);
 
         //setup indicator
-        indicator.GetComponent<ReadyIndicator>().Own(transform);
+        CraneMainBody mainBody = GetComponentInChildren<CraneMainBody>();
+        indicator.GetComponent<ReadyIndicator>().Own(mainBody.transform);
     }
 }
