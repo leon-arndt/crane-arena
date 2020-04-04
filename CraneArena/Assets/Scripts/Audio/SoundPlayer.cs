@@ -21,7 +21,8 @@ public class SoundPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Play(SoundEventEnum.even);
+            Debug.Log("Fire test audio event");
+            Play(SoundEventEnum.Test);
         }
     }
 

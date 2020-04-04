@@ -9,9 +9,8 @@ using Sirenix.OdinInspector;
 public enum SoundEventEnum
 {
     Test,
-    Idont,
-    even,
-    know
+    Break,
+    Collision
 }
 
 [CreateAssetMenu(fileName = "SoundDictionary", menuName = "ScriptableObjects/SoundDictionary", order = 1)]

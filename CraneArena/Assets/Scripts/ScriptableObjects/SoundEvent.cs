@@ -15,7 +15,7 @@ public class SoundEvent : ScriptableObject
     public AudioClip clip;
 
     [Range(0, 1)]
-    public float volume;
+    public float volume = 0.8f;
 
    public void OnValidate()
     {
