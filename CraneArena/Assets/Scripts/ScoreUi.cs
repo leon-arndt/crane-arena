@@ -53,7 +53,7 @@ public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
     /// <param name="visibility">The desired visibility of the gameObject</param>
     public static void SetScoreVisibility(int id, bool visibility)
     {
-        GameObject scoreObject = Instance.scores[id].gameObject;
+        GameObject scoreObject = Instance.scores[id].transform.parent.gameObject;
         scoreObject.SetActive(visibility);
     }
 }
