@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private bool m_HasStarted = false;
 
     public bool HasStarted { get => m_HasStarted; }
+    public bool roundOver;
 
     // Start is called before the first frame update
     void Start()
@@ -52,12 +53,19 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             //Game Start
             timeLeft -= Time.deltaTime;
             StartRound();
+
+            float shrinkCountDown = 10f;
+            if (timeLeft < shrinkCountDown)
+            {
+                MapShrinker.Instance.StartShrinking(shrinkCountDown);
+            }
         }
-        else
+        else if (!roundOver)
         {
             //Game over
             Debug.Log("Time ran out");
             timeLeft = 0f;
+            roundOver = true;
         }
     }
 
