@@ -188,6 +188,61 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "BingMango",
+                    "id": "30a9bd15-a1f6-4873-a532-d91e20b97468",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "81531835-4024-4d0b-a6f2-b962633b098e",
+                    "path": "<ArrowKeysDevice>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArrowKeys",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c2916cc0-f0cb-4483-83c2-346687fdc7e9",
+                    "path": "<ArrowKeysDevice>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArrowKeys",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d81fd7b4-158c-4458-81d9-045fa9e27f6c",
+                    "path": "<ArrowKeysDevice>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArrowKeys",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7b9bef72-de66-451a-b267-7bc080e728a9",
+                    "path": "<ArrowKeysDevice>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArrowKeys",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
                     "path": "<Gamepad>/rightStick",
@@ -962,6 +1017,17 @@
                 {
                     "devicePath": "<XRController>",
                     "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "ArrowKeys",
+            "bindingGroup": "ArrowKeys",
+            "devices": [
+                {
+                    "devicePath": "<ArrowKeysDevice>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
