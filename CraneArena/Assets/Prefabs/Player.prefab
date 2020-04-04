@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MovementSpeed: 30
   m_TrackRotationSpeed: 60
   useAngularVelocity: 1
-  m_CircleRotationSpeed: 200
+  m_CircleRotationSpeed: 500
   m_JumpForce: 10000
   groundChecks:
   - {fileID: 1635586254704618260}
