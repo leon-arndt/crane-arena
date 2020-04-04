@@ -2133,7 +2133,7 @@ MonoBehaviour:
   - {fileID: 6201352925782289013}
   - {fileID: 1022656171001283872}
   - {fileID: 3998579209214363461}
-  m_defaultCanvasGroup: {fileID: 6201352925782289013}
+  m_defaultCanvasGroup: {fileID: 1022656171001283872}
 --- !u!1 &8796437033668008668
 GameObject:
   m_ObjectHideFlags: 0
