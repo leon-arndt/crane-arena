@@ -88,9 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9bd9010b74b1349abbd0e3481d7e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLeft: 0
   m_SpawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_CorrespondingCranesToSpawn:
   - {fileID: 1209961786714597996, guid: 02ae71ca8f89efc44825b739bf2bc7a4, type: 3}
   - {fileID: 7115649477575142681, guid: 7932b6255008c2543a54cb7a23cf7fb4, type: 3}
+  - {fileID: 3751471711353096392, guid: 0a45fbb9cc428334e82a0d510f1b10df, type: 3}
+  - {fileID: 3290347644268107353, guid: 2a0c6486ed9196f42a536316baba91b5, type: 3}
