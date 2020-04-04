@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         // 
         //         }
 
-        timeLeft = 90f;
+        timeLeft = 45f;
     }
     private void OnEnable()
     {
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             //Game Start
             timeLeft -= Time.deltaTime;
-            StartRound();
 
             float shrinkCountDown = 20f;
             if (timeLeft < shrinkCountDown)
@@ -85,7 +84,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
                 // Enable UI Elements
                 ScoreUi.SetScoreVisibility(currentIndex, true);
-
 
                 currentIndex++;
             }
@@ -154,8 +152,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
         if (playersReady.Count != m_Players.Count) { return; }
 
+        //Start Game
         StartRound();
-        
+        m_HasStarted = true;
+
 
     }
 }
