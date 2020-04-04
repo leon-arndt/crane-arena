@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 6578243683915179065}
   - component: {fileID: 3587893652150222808}
   - component: {fileID: 9079531058528005858}
+  - component: {fileID: 1548076361362408041}
   m_Layer: 0
   m_Name: rotationaxis
   m_TagString: Untagged
@@ -482,6 +483,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f452ce28831b6f848965f8f928f101b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1548076361362408041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943930674739615915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564f94d5601e8564d98e21ac29adcea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2949269883496266401

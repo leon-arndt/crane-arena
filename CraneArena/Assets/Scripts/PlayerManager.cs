@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private float waitForRespawn = 2f;
+
+
     private CraneMovementController m_MovementController = null;
-
-    private float waitForRespawn = 2f;
-
     private Transform m_SpawnPos = null;
 
     public Transform SpawnPos { get => m_SpawnPos; set => m_SpawnPos = value; }
@@ -44,18 +44,20 @@ public class PlayerManager : MonoBehaviour
         //disable movement
         m_MovementController.CanMove = false;
 
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+        
 
         StartCoroutine(RespawnPlayer(waitForRespawn));
     }
 
     private IEnumerator RespawnPlayer(float timeToWait)
     {
+        
         yield return new WaitForSeconds(timeToWait);
-
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        yield return new WaitForFixedUpdate();
         var crane = Instantiate(cranePrefab, transform);
         SetupCraneComponents(crane);
         m_MovementController.CanMove = true;

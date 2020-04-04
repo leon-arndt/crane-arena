@@ -11,10 +11,10 @@ public class LoseDetector : MonoBehaviour
         m_Manager = GetComponentInParent<PlayerManager>();
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(!other.GetComponent<LoseZone>()){ return; }
         m_Manager.InLoseZone();
-
     }
 }
