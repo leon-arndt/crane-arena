@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         // 
         //         }
 
-        timeLeft = 15f;
+        timeLeft = 45f;
     }
     private void OnEnable()
     {
