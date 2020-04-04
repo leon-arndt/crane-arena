@@ -120,7 +120,7 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343490414683233391}
   m_ConnectedBody: {fileID: 7613387750668571626}
-  m_BreakForce: 10000
+  m_BreakForce: 25000
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2779279579833784447}
   m_Layer: 0
-  m_Name: Crane
+  m_Name: Crane Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5492,7 +5492,7 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6220799064122097371}
   m_ConnectedBody: {fileID: 9213175378940936214}
-  m_BreakForce: 25000
+  m_BreakForce: 50000
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -5698,7 +5698,7 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6696837443112429630}
   m_ConnectedBody: {fileID: 4898585552229834315}
-  m_BreakForce: 15000
+  m_BreakForce: 30000
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -6083,7 +6083,7 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9218361170151383330}
   m_ConnectedBody: {fileID: 4722723300871404488}
-  m_BreakForce: 10000
+  m_BreakForce: 20000
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
