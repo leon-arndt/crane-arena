@@ -152,6 +152,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         if (playersReady.Contains(player)) { return; }
 
+        StartGame();
+    }
+
+
+    public void StartGame(PlayerManager player)
+    {
         player.SpawnIndicator();
         playersReady.Add(player);
 
@@ -167,5 +173,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             Destroy(item.gameObject);
         }
+
+        //start spawning hazards
+        HazardSpawner.Instance.StartSpawning();
     }
 }
