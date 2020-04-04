@@ -13,6 +13,9 @@ public class PlayerManager : MonoBehaviour
     private Transform m_SpawnPos = null;
     public Transform SpawnPos { get => m_SpawnPos; set => m_SpawnPos = value; }
 
+    private bool m_IsReadyToStart;
+    public bool IsReadyToStart { get => m_IsReadyToStart; set => m_IsReadyToStart = value; }
+
     private int m_Score = 0;
     public int Score { get => m_Score; set => m_Score = value; }
 
@@ -20,8 +23,9 @@ public class PlayerManager : MonoBehaviour
 
 
     GameObject cranePrefab = null;
-    
+
     public static event Action<PlayerManager> onPlayerDeath;
+    public static event Action<PlayerManager> onPlayerReady;
 
     // Update is called once per frame
     void Update()
@@ -34,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         if (transform.childCount <= 0)
         {
             cranePrefab = craneToInstantiate;
-                var crane = Instantiate(craneToInstantiate, transform);
+            var crane = Instantiate(craneToInstantiate, transform);
             SetupCraneComponents(crane);
             return true;
         }
@@ -55,7 +59,7 @@ public class PlayerManager : MonoBehaviour
         //player dead
 
         onPlayerDeath(this);
-        
+
         //StartCoroutine(RespawnPlayer(waitForRespawn));
 
     }
@@ -63,7 +67,7 @@ public class PlayerManager : MonoBehaviour
     private IEnumerator RespawnPlayer(float timeToWait)
     {
         transform.DetachChildren();
-        
+
         yield return new WaitForSeconds(timeToWait);
 
         yield return new WaitForFixedUpdate();
@@ -76,10 +80,18 @@ public class PlayerManager : MonoBehaviour
     {
         m_MovementController.CanMove = false;
 
-        
-
         StartCoroutine(RespawnPlayer(0.5f));
-       
+
         Debug.Log("Respawn!");
+    }
+
+    public void OnJump()
+    {
+        if (GameManager.Instance.HasStarted) { return; }
+        IsReadyToStart = true;
+        //ready event
+        onPlayerReady(this);
+        //show ready confirmation
+
     }
 }
