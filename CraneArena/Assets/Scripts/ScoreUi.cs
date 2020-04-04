@@ -18,12 +18,14 @@ public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
 
     /// <summary>
     /// Reset the score UI to default conditions
+    /// Hide all scores as well
     /// </summary>
     public void Init()
     {
         for (int i = 0; i < scores.Length; i++)
         {
             UpdateScore(i, 0);
+            SetScoreVisibility(i, false);
         }
     }
 
@@ -47,8 +49,8 @@ public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
     /// <summary>
     /// Enable or disable the desired score object (depending on active player count)
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="visibility"></param>
+    /// <param name="id">The id of the player</param>
+    /// <param name="visibility">The desired visibility of the gameObject</param>
     public static void SetScoreVisibility(int id, bool visibility)
     {
         GameObject scoreObject = Instance.scores[id].gameObject;
