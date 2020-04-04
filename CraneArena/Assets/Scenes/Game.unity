@@ -1009,6 +1009,16 @@ PrefabInstance:
       propertyPath: m_SpawnPositions.Array.data[1]
       value: 
       objectReference: {fileID: 316876658}
+    - target: {fileID: 4766885164709724851, guid: 385718eb1065da94ba0440fd26829b41,
+        type: 3}
+      propertyPath: m_SpawnPositions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1394909724}
+    - target: {fileID: 4766885164709724851, guid: 385718eb1065da94ba0440fd26829b41,
+        type: 3}
+      propertyPath: m_SpawnPositions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1953381762}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 385718eb1065da94ba0440fd26829b41, type: 3}
 --- !u!1 &717445446
