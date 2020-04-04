@@ -150,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e190989379e58be41aaf224b4722e57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitForRespawn: 2
