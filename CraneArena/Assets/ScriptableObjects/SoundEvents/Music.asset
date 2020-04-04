@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: Music
   clip: {fileID: 0}
-  volume: 0.8
+  volume: 0

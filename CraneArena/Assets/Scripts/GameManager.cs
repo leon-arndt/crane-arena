@@ -90,11 +90,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public void StartRound()
     {
         playersAlive.Clear();
-        foreach (var player  in m_Players)
+        foreach (var player in m_Players)
         {
             playersAlive.Add(player);
         }
-        
+
+        CanvasGroupSwitcher.ShowGamePanel();
         foreach (var player in m_Players)
         {
             Destroy(player.transform.GetChild(0).gameObject);

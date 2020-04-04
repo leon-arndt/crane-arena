@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 /// <summary>
 /// Switch between the different canvas groups in the game such as the game, winner, and intro screen
@@ -14,6 +15,8 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
     [SerializeField]
     CanvasGroup m_defaultCanvasGroup;
 
+    [SerializeField]
+    CanvasGroup m_GameCanvasGroup;
     private void Start()
     {
         OpenDefaultPanel(); 
@@ -41,5 +44,10 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
             targetAlpha = item.name.Equals(targetName) ? 1f : 0f;
             item.DOFade(targetAlpha, fadeTime);
         }
+    }
+
+    internal static void ShowGamePanel()
+    {
+        SetActiveGroup(Instance.m_GameCanvasGroup.name);
     }
 }
