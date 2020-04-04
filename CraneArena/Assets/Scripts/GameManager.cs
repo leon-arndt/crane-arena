@@ -8,35 +8,47 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public float timeLeft;
 
     [SerializeField] private Transform[] m_SpawnPositions = null;
-    [SerializeField] private GameObject[] m_CorrespondingCranesToSpawn =null;
+    [SerializeField] private GameObject[] m_CorrespondingCranesToSpawn = null;
     private List<PlayerManager> m_Players = new List<PlayerManager>();
     private List<PlayerManager> playersAlive = new List<PlayerManager>();
+    private List<PlayerManager> playersReady = new List<PlayerManager>();
 
     private int currentIndex = 0;
     private bool m_HasStarted = false;
+
+    public bool HasStarted { get => m_HasStarted; }
 
     // Start is called before the first frame update
     void Start()
     {
         //Spawn Players
-//         var inputManager = GetComponent<PlayerInputManager>();
-//         if (!inputManager) { return; }
-//         var player = inputManager.playerPrefab;
-//         for (int i = 0; i < m_SpawnPositions.Length; i++)
-//         {
-// 
-//         }
-        PlayerManager.onPlayerDeath +=OnPlayerDeath;
+        //         var inputManager = GetComponent<PlayerInputManager>();
+        //         if (!inputManager) { return; }
+        //         var player = inputManager.playerPrefab;
+        //         for (int i = 0; i < m_SpawnPositions.Length; i++)
+        //         {
+        // 
+        //         }
 
         timeLeft = 90f;
     }
+    private void OnEnable()
+    {
+        PlayerManager.onPlayerDeath += OnPlayerDeath;
+        PlayerManager.onPlayerReady += OnPlayerReady;
+    }
 
+    private void OnDisable()
+    {
+        PlayerManager.onPlayerDeath -= OnPlayerDeath;
+        PlayerManager.onPlayerReady -= OnPlayerReady;
+    }
     // Update is called once per frame
     void Update()
     {
         if (timeLeft > 0 && m_HasStarted)
         {
-        //Game Start
+            //Game Start
             timeLeft -= Time.deltaTime;
             StartRound();
         }
@@ -74,7 +86,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     /// <summary>
     /// 
     /// </summary>
-    public void StartRound(){
+    public void StartRound()
+    {
 
         playersAlive = m_Players;
         foreach (var player in m_Players)
@@ -88,21 +101,35 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             }
         }
     }
+
     /// <summary>
     /// Gets called when player dies
     /// </summary>
-    public void OnPlayerDeath(PlayerManager player){
+    public void OnPlayerDeath(PlayerManager player)
+    {
         //set player dead
         playersAlive.Remove(player);
         //check if all player dead
-        if(playersAlive.Count ==1){
+        if (playersAlive.Count == 1)
+        {
             //notify winner
-            Debug.Log("Winner");
-            //playersAlive[0]//winner
+            var playerId = m_Players.IndexOf(playersAlive[0]);
+            Debug.Log("Winner: "+playerId);
+            ScoreTracker.IncreaseScoreByOne(playerId);
+
+            StartRound();//#TODO: add delay with animations
         }
-        
-
-            //StartRound();
     }
+    public void OnPlayerReady(PlayerManager player)
+    {
+        if (playersReady.Contains(player)) { return; }
 
+        playersReady.Add(player);
+
+        if (playersReady.Count != m_Players.Count) { return; }
+
+        StartRound();
+        Debug.Log("Started Round");
+
+    }
 }
