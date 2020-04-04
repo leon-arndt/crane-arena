@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 MapShrinker.Instance.StartShrinking(shrinkCountDown);
             }
         }
-        else if (!roundOver)
+        else if (!roundOver && timeLeft <= 0)
         {
             //Game over
             Debug.Log("Time ran out");
