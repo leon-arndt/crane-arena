@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         // 
         //         }
 
-        timeLeft = 45f;
     }
     private void OnEnable()
     {
@@ -95,6 +94,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     /// </summary>
     public void StartRound()
     {
+        //start time
+        timeLeft = 45f;
+
         playersAlive.Clear();
         foreach (var player in m_Players)
         {
