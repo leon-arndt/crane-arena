@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 
 /// <summary>
-/// UI scene class which simply updates the scores
+/// UI scene class which updates the scores
 /// </summary>
 public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
 {
     [SerializeField]
-    private TextMeshProUGUI m_firstPlayerScore, m_secondPlayerScore;
+    private TextMeshProUGUI[] scores;
 
     private void Start()
     {
@@ -21,8 +21,10 @@ public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
     /// </summary>
     public void Init()
     {
-        UpdateScore(0, 0);
-        UpdateScore(1, 0);
+        for (int i = 0; i < scores.Length; i++)
+        {
+            UpdateScore(i, 0);
+        }
     }
 
     /// <summary>
@@ -32,17 +34,24 @@ public class ScoreUi : MonoBehaviourSingleton<ScoreUi>
     /// <param name="newScore"></param>
     public static void UpdateScore(int playerId, int newScore)
     {
-        if (playerId == 0)
+        if (playerId < Instance.scores.Length)
         {
-            Instance.m_firstPlayerScore.text = newScore.ToString();
-        }
-        else if (playerId == 1)
-        {
-            Instance.m_secondPlayerScore.text = newScore.ToString();
+            Instance.scores[playerId].text = newScore.ToString();
         }
         else
         {
             Debug.LogError("ScoreUi: Bad player ID passed");
         }
+    }
+
+    /// <summary>
+    /// Enable or disable the desired score object (depending on active player count)
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="visibility"></param>
+    public static void SetScoreVisibility(int id, bool visibility)
+    {
+        GameObject scoreObject = Instance.scores[id].gameObject;
+        scoreObject.SetActive(visibility);
     }
 }

@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 1116184275830121072}
   - component: {fileID: 7500867622865233405}
   m_Layer: 5
-  m_Name: Blue Score Text
+  m_Name: Green Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 3514810097923850955}
   - component: {fileID: 4227015527636470557}
   m_Layer: 5
-  m_Name: Blue Score Text
+  m_Name: Red Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1862,8 +1862,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284735283a9d3e34baafb4a7ac5cf36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_firstPlayerScore: {fileID: 3239514069137259653}
-  m_secondPlayerScore: {fileID: 7500867622865233405}
+  scores:
+  - {fileID: 3239514069137259653}
+  - {fileID: 314769427567082000}
+  - {fileID: 4227015527636470557}
+  - {fileID: 7500867622865233405}
 --- !u!1 &6299522775484996011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2116,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &7507843873584434186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,7 +2146,7 @@ GameObject:
   - component: {fileID: 5857437169191380317}
   - component: {fileID: 3239514069137259653}
   m_Layer: 5
-  m_Name: Orange Score Text
+  m_Name: Yellow Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2299,7 +2302,7 @@ GameObject:
   - component: {fileID: 3841722291933596216}
   - component: {fileID: 314769427567082000}
   m_Layer: 5
-  m_Name: Orange Score Text
+  m_Name: Blue Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
