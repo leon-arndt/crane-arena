@@ -36,12 +36,12 @@ public class HazardSpawner : MonoBehaviourSingleton<HazardSpawner>
     /// <returns></returns>
     IEnumerator SpawnHazardRoutine()
     {
-        if (GameManager.Instance.timeLeft > 30f)
+        if (GameManager.Instance.timeLeft > 10f)
         {
             SpawnHazard();
         }
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(10f);
 
         StartCoroutine(SpawnHazardRoutine());
     }
