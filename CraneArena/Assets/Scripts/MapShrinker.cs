@@ -13,6 +13,6 @@ public class MapShrinker : MonoBehaviourSingleton<MapShrinker>
     public void StartShrinking(float duration)
     {
         m_isShrinking = true;
-        transform.DOScale(0, duration);
+        transform.DOScale(0.2f, duration);
     }
 }
