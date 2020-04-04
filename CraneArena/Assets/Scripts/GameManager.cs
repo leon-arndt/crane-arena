@@ -105,11 +105,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             playersAlive.Add(player);
         }
-
         CanvasGroupSwitcher.ShowGamePanel();
         foreach (var player in m_Players)
         {
-            Destroy(player.transform.GetChild(0).gameObject);
+            player.transform.GetChild(0).transform.parent = null;
             player.Respawn();
         }
 
@@ -136,8 +135,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             ScoreTracker.IncreaseScoreByOne(playerId);
 
             CanvasGroupSwitcher.ShowWinnerPanel();
+
             //#TODO: Destroy Player Crane
-            StartCoroutine(StartRoundAfterDelay(0.1f));//#TODO: add delay with animations
+            StartCoroutine(StartRoundAfterDelay(4f));//#TODO: add delay with animations
         }
     }
 
