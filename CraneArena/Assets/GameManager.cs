@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+    public float timeLeft;
 
     [SerializeField] private Transform[] m_SpawnPositions;
     [SerializeField] private GameObject[] m_CorrespondingCranesToSpawn;
@@ -22,12 +23,13 @@ public class GameManager : MonoBehaviour
 
         }
 
+        timeLeft = 90f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        timeLeft -= Time.deltaTime;
     }
 
     public void OnPlayerJoined()
