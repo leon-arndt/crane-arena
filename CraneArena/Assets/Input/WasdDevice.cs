@@ -322,10 +322,10 @@ public class WasdDevice : InputDevice, IInputUpdateCallbackReceiver
         //          you don't want to.
 
         // Map Arrow keys to stick.
-        var upPressed = keyboard.upArrowKey.isPressed;
-        var leftPressed = keyboard.leftArrowKey.isPressed;
-        var downPressed = keyboard.downArrowKey.isPressed;
-        var rightPressed = keyboard.rightArrowKey.isPressed;
+        var upPressed = keyboard.wKey.isPressed;
+        var leftPressed = keyboard.aKey.isPressed;
+        var downPressed = keyboard.dKey.isPressed;
+        var rightPressed = keyboard.sKey.isPressed;
 
         if (leftPressed)
             state.x -= 127;
