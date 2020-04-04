@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class ReadyIndicator : MonoBehaviour
 {
-    public static List<ReadyIndicator> indicators;
+    public static List<ReadyIndicator> indicators = new List<ReadyIndicator>();
 
     // Start is called before the first frame update
     void Start()
