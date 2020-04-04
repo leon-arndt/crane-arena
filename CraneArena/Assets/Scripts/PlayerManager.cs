@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player logic, handles death conditions
+/// </summary>
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float waitForRespawn = 2f;
 
+    //TODO! Make this player id dynamic for each player
+    private int m_playerId = 0;
 
     private CraneMovementController m_MovementController = null;
     private Transform m_SpawnPos = null;
@@ -44,7 +49,8 @@ public class PlayerManager : MonoBehaviour
         //disable movement
         m_MovementController.CanMove = false;
 
-        
+        //update score
+        ScoreTracker.IncreaseOtherPlayer(m_playerId);
 
         StartCoroutine(RespawnPlayer(waitForRespawn));
     }

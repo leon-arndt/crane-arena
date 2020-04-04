@@ -29,7 +29,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+        else
+        {
+            //Game over
+            Debug.Log("Time ran out");
+            timeLeft = 0f;
+        }
     }
 
     public void OnPlayerJoined()
