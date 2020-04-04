@@ -16,7 +16,7 @@ public class CraneMovementController : MonoBehaviour
     [SerializeField] float m_JumpForce = 20f;
 
     [Header("GroundChecks")]
-    [SerializeField] private GameObject[] groundChecks = null;
+    [SerializeField] private List<GameObject> m_GroundChecks = null;
     [SerializeField] private float distanceToCheck = 1f;
 
     private Rigidbody m_RigidbodyTracks = null;
@@ -26,12 +26,31 @@ public class CraneMovementController : MonoBehaviour
     private float trackRotationValue = 0f;
     private float circleRotationValue = 0f;
     private bool bCanJump = true;
+    private bool bCanMove = false;
+
+    public bool CanMove { get => bCanMove; set => bCanMove = value; }
     #region UNITY EVENTS
     // Start is called before the first frame update
     void Start()
     {
+        //Setup ObjectsToRotate
+    }
+
+    internal void SetupComponents()
+    {
+        m_TracksToRotate = GetComponentInChildren<Tracks>().gameObject;
+        m_CircleToRotate = GetComponentInChildren<CraneMainBody>().gameObject;
         m_RigidbodyTracks = m_TracksToRotate.GetComponent<Rigidbody>();
         m_RigidbodyCircle = m_CircleToRotate.GetComponent<Rigidbody>();
+
+        var groundchecks = GetComponentsInChildren<GroundCheck>();
+
+        foreach (var check in groundchecks)
+        {
+            m_GroundChecks.Add(check.gameObject);
+        }
+
+        bCanMove = true;
     }
 
     // Update is called once per frame
@@ -45,6 +64,12 @@ public class CraneMovementController : MonoBehaviour
         Vector2 trueValue = value.Get<Vector2>();
         forwardValue = trueValue.y;
         trackRotationValue = trueValue.x;
+    }
+    public void OnRespawn(InputValue value)
+    {
+        var manager =GetComponent<PlayerManager>();
+        if(!manager){ return; }
+        manager.Respawn();
     }
 
     public void OnRotate(InputValue value)
@@ -60,28 +85,29 @@ public class CraneMovementController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        SetVelocity();
-        RotateBody(m_TracksToRotate, m_RigidbodyTracks, trackRotationValue, m_TrackRotationSpeed,useAngularVelocity);
-        RotateBody(m_CircleToRotate, m_RigidbodyCircle, circleRotationValue, m_CircleRotationSpeed,false);
+        if (bCanMove)
+        {
+            SetVelocity();
+            RotateBody(m_TracksToRotate, m_RigidbodyTracks, trackRotationValue, m_TrackRotationSpeed, useAngularVelocity);
+            RotateBody(m_CircleToRotate, m_RigidbodyCircle, circleRotationValue, m_CircleRotationSpeed, false);
+        }
     }
 
     private void SetVelocity()
     {
         //Do ground Checks
-        if (!CheckGround()){ return; }
+        if (!CheckGround()) { return; }
         m_RigidbodyTracks.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
-        
+
     }
 
     private bool CheckGround()
     {
         var onGround = true;
-        foreach (var check in groundChecks)
+        foreach (var check in m_GroundChecks)
         {
-            Debug.DrawLine(check.transform.position, check.transform.position + check.transform.up * -1 * distanceToCheck);
-            var hit = Physics.Raycast(check.transform.position, check.transform.up*-1 * distanceToCheck,1<<LayerMask.NameToLayer("Default"));
+            var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Default"));
             if (!hit) { onGround = false; break; }
-            Debug.Log("hello"+onGround);
         }
         return onGround;
     }

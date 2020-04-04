@@ -744,6 +744,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerInputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4766885164709724851, guid: 385718eb1065da94ba0440fd26829b41,
+        type: 3}
+      propertyPath: m_SpawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 893895872}
+    - target: {fileID: 4766885164709724851, guid: 385718eb1065da94ba0440fd26829b41,
+        type: 3}
+      propertyPath: m_SpawnPositions.Array.data[1]
+      value: 
+      objectReference: {fileID: 316876658}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 385718eb1065da94ba0440fd26829b41, type: 3}
 --- !u!1 &717445446
