@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         if (playersReady.Contains(player)) { return; }
 
-        StartGame();
+        StartGame(player);
     }
 
 
