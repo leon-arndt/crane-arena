@@ -110,6 +110,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         //Reset map scaling
         MapShrinker.ResetScale();
 
+        //music
+        MusicJukebox.Instance.NextTrack();
+
         Debug.Log("Started Round");
     }
 
