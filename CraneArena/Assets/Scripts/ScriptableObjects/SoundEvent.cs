@@ -19,15 +19,15 @@ public class SoundEvent : ScriptableObject
 
    public void OnValidate()
     {
-        FileNameToNameField();
+        //FileNameToNameField();
     }
 
     /// <summary>
     /// Automatically update the eventName to the fileName to avoid errors and naming effor
     /// </summary>
-    public void FileNameToNameField()
-    {
-        string assetPath = AssetDatabase.GetAssetPath(this.GetInstanceID());
-        eventName = Path.GetFileNameWithoutExtension(assetPath);
-    }
+//     public void FileNameToNameField()
+//     {
+//         string assetPath = AssetDatabase.GetAssetPath(this.GetInstanceID());
+//         eventName = Path.GetFileNameWithoutExtension(assetPath);
+//     }
 }
