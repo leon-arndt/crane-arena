@@ -9,11 +9,15 @@ public class DestroyCollided : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        if (!GameManager.Instance.HasStarted) { return; }
+
         Destroy(other.gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!GameManager.Instance.HasStarted) { return; }
+
         Destroy(collision.gameObject);
     }
 }

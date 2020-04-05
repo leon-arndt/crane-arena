@@ -22,12 +22,14 @@ public class PlayerManager : MonoBehaviour
 
     private CraneMovementController m_MovementController = null;
 
+    private float m_TimeBorn = 0f;
 
     GameObject cranePrefab = null;
 
     public static event Action<PlayerManager> onPlayerDeath;
     public static event Action<PlayerManager> onPlayerReady;
 
+    
     internal bool CreateCrane(GameObject craneToInstantiate)
     {
         if (transform.childCount <= 0)
@@ -44,6 +46,8 @@ public class PlayerManager : MonoBehaviour
     {
         m_MovementController = GetComponent<CraneMovementController>();
         m_MovementController.SetupComponents();
+
+        m_TimeBorn = Time.timeSinceLevelLoad;
     }
 
     internal void InLoseZone()
@@ -82,7 +86,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnJump()
     {
-        if (GameManager.Instance.HasStarted) { return; }
+        if (GameManager.Instance.HasStarted || Time.timeSinceLevelLoad < m_TimeBorn + 0.5f) { return; }
         IsReadyToStart = true;
         //ready event
         onPlayerReady(this);
@@ -91,6 +95,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void SpawnIndicator(){
+
+        
         GameObject indicator = Instantiate(m_ReadyIndicator, transform);
 
         //setup indicator

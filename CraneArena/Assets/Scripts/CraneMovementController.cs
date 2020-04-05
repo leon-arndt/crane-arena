@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
+
 public class CraneMovementController : MonoBehaviour
 {
     [SerializeField] GameObject m_TracksToRotate = null;
@@ -24,8 +26,10 @@ public class CraneMovementController : MonoBehaviour
     [SerializeField] private List<GameObject> m_GroundChecks = null;
     [SerializeField] private float distanceToCheck = 1f;
 
+    [Header("CraneTrails")]
+    [SerializeField] private GameObject m_CraneTrail;
+    [Header("Audio")]
     [SerializeField] private EngineSound engineSound;
-
     private Rigidbody m_RigidbodyTracks = null;
     private Rigidbody m_RigidbodyCircle = null;
 
@@ -35,6 +39,7 @@ public class CraneMovementController : MonoBehaviour
     private bool bCanJump = true;
     private bool bCanMove = false;
 
+    private CraneTrailSpawn[] m_CraneTrailSpawns = null;
     public bool CanMove { get => bCanMove; set => bCanMove = value; }
     #region UNITY EVENTS
     // Start is called before the first frame update
@@ -59,7 +64,29 @@ public class CraneMovementController : MonoBehaviour
             m_GroundChecks.Add(check.gameObject);
         }
 
+        //Trails
+        m_CraneTrailSpawns = GetComponentsInChildren<CraneTrailSpawn>();
+        for (int i = 0; i < m_CraneTrailSpawns.Length; i++)
+        {
+            //InstantiateTrail(i);
+        }
+
         bCanMove = true;
+    }
+
+    private void InstantiateTrail(int i)
+    {
+        var craneTrail = Instantiate(m_CraneTrail, m_CraneTrailSpawns[i].transform);
+//         var positionConstraint = craneTrail.GetComponent<PositionConstraint>();
+//         if (positionConstraint)
+//         {
+//             ConstraintSource constraint = new ConstraintSource();
+//             constraint.sourceTransform = m_TracksToRotate.transform;
+//             constraint.weight = 1;
+//             positionConstraint.AddSource(constraint);
+//             positionConstraint.constraintActive = true;
+//         }
+
     }
 
     // Update is called once per frame
@@ -76,8 +103,8 @@ public class CraneMovementController : MonoBehaviour
     }
     public void OnRespawn(InputValue value)
     {
-        var manager =GetComponent<PlayerManager>();
-        if(!manager){ return; }
+        var manager = GetComponent<PlayerManager>();
+        if (!manager) { return; }
         manager.Respawn();
     }
 
@@ -130,11 +157,37 @@ public class CraneMovementController : MonoBehaviour
 
         foreach (var check in m_GroundChecks)
         {
-            Debug.DrawLine(check.transform.position, check.transform.position+ check.transform.up * -1 * distanceToCheck,Color.red);
-            var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Default"));
+           // Debug.DrawRay(Vector3.zero, Vector3.up, Color.red, 100,false);
+           // Debug.DrawRay(check.transform.position, check.transform.up * -1 * distanceToCheck, Color.red);
+            var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (!hit) { onGround = false; break; }
+            else
+            {
+                onGround = true;
+            }
         }
+        if (onGround)
+        {
+            for (int i = 0; i < m_CraneTrailSpawns.Length; i++)
+            {
+                var craneTrail = m_CraneTrailSpawns[i].GetComponentInChildren<CraneTrail>();
+                if (!craneTrail)
+                {
+                   // InstantiateTrail(i);
+                }
+            }
+        }
+        else
+        {
+            //clear Trails
+            foreach (var craneTrailSpawn in m_CraneTrailSpawns)
+            {
+                var craneTrail = craneTrailSpawn.GetComponentInChildren<CraneTrail>();
+                craneTrailSpawn.transform.DetachChildren();
 
+                if (craneTrail) { craneTrail.DestroyAfterLifetime(); }
+            }
+        }
         return onGround;
     }
 

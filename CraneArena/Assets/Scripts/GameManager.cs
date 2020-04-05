@@ -106,13 +106,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             if (HasStarted)
             {
-                player.transform.GetChild(0).transform.parent = null;
+                Destroy(player.transform.GetChild(0).gameObject);
+                //player.transform.GetChild(0).transform.parent = null;
             }
             else
             {
                 //lobby pregame
                 player.transform.GetChild(0).transform.parent = PlayerHolder.Instance.holder;
             }
+
             player.Respawn();
         }
 
@@ -184,7 +186,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         player.SpawnIndicator();
         playersReady.Add(player);
 
-        if (playersReady.Count != m_Players.Count) { return; }
+        if (playersReady.Count != m_Players.Count || playersReady.Count <=1) { return; }
 
         //Start Game
         StartRound();

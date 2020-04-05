@@ -137,7 +137,10 @@ MonoBehaviour:
   useAngularVelocityForCircle: 1
   m_JumpForce: 250000
   m_GroundChecks: []
-  distanceToCheck: 0.1
+  distanceToCheck: 0.05
+  m_CraneTrail: {fileID: 8542849661666545456, guid: 7ff3e451c0cd4ee489689ba547293e84,
+    type: 3}
+  engineSound: {fileID: 0}
 --- !u!114 &7958844041920923479
 MonoBehaviour:
   m_ObjectHideFlags: 0
