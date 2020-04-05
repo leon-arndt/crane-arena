@@ -21,6 +21,14 @@ public class MusicJukebox : MonoBehaviourSingleton<MusicJukebox>
         source.Play();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            //skip current track
+            NextTrack();
+        }
+    }
     public void NextTrack()
     {
         //increase track index and return to start if overflow
