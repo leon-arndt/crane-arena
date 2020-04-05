@@ -124,6 +124,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         //music
         MusicJukebox.Instance.NextTrack();
 
+        //kick off text
+        KickOffUi.Instance.ShowKickOffText();
+
         Debug.Log("Started Round");
     }
 
