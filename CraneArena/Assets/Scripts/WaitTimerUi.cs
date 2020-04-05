@@ -17,13 +17,13 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
         if (waitTime > 0)
         {
             waitTime -= Time.deltaTime;
-            waitTime = Mathf.Max(0f, waitTime);
 
             //round two two decimal places
             waitTime = Mathf.Round(waitTime * 100f) / 100f;
 
             //update UI text and format string properly
-            uiText.text = "Next Round starts in: " + waitTime.ToString("0.00");
+            //uiText.text = "Next Round starts in: " + waitTime.ToString("0.00");
+            uiText.text = "Next Round starts in: " + waitTime;
         }
     }
 
