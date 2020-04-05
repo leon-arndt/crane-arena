@@ -10,7 +10,10 @@ public enum SoundEventEnum
 {
     Test,
     Break,
-    Collision
+    Collision,
+    RoundWin,
+    GameIntro,
+    PositiveFeedbackShort
 }
 
 [CreateAssetMenu(fileName = "SoundDictionary", menuName = "ScriptableObjects/SoundDictionary", order = 1)]

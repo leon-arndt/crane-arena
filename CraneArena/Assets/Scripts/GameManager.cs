@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         PlayerManager.onPlayerDeath -= OnPlayerDeath;
         PlayerManager.onPlayerReady -= OnPlayerReady;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             //User interface update
             WinnerScreenUi.UpdateWinner(playerId);
             CanvasGroupSwitcher.ShowWinnerPanel();
+
+            //winner sound effect
+            SoundPlayer.Play(SoundEventEnum.RoundWin);
 
             //#TODO: Destroy Player Crane
             StartCoroutine(StartRoundAfterDelay(4f));//#TODO: add delay with animations

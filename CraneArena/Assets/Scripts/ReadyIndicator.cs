@@ -15,6 +15,9 @@ public class ReadyIndicator : MonoBehaviour
     void Start()
     {
         indicators.Add(this);
+
+        //play feedback sound
+        SoundPlayer.Play(SoundEventEnum.PositiveFeedbackShort);
     }
 
     private void Update()
