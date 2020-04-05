@@ -31,8 +31,8 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
             //round two two decimal places
             waitTime = Mathf.Round(waitTime * 100f) / 100f;
 
-            //update UI text
-            uiText.text = "Next Round starts in: " + waitTime.ToString();
+            //update UI text and format string properly
+            uiText.text = "Next Round starts in: " + waitTime.ToString("0.00");
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }

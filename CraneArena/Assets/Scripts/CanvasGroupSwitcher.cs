@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Sirenix.OdinInspector;
 
 /// <summary>
 /// Switch between the different canvas groups in the game such as the game, winner, and intro screen
@@ -50,11 +51,13 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
         }
     }
 
+    [Button]
     internal static void ShowGamePanel()
     {
         SetActiveGroup(Instance.m_GameCanvasGroup.name);
     }
 
+    [Button]
     internal static void ShowWinnerPanel()
     {
         SetActiveGroup(Instance.m_winnerCanvasGroup.name);

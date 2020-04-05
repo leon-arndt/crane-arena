@@ -2240,7 +2240,7 @@ GameObject:
   - component: {fileID: 2308165782394154182}
   - component: {fileID: 2731073769160584597}
   m_Layer: 5
-  m_Name: Timer Text [Refernced]
+  m_Name: Timer Text [Referenced]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,10 +2320,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 45
+  m_fontSize: 53.15
   m_fontSizeBase: 45
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
