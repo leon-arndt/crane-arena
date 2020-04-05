@@ -18,7 +18,7 @@ public class EndScreenUi : MonoBehaviourSingleton<EndScreenUi>
         {
             //increase by 1, since real humans begin counting with 1
             playerId++;
-            winString = "Player " + playerId.ToString() + " Won the Game!";
+            winString = "Player " + playerId.ToString() + " Wins the Wobble Shovle!";
         }
         Instance.winnerText.text = winString;
     }
