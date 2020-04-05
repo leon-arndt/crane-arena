@@ -58,5 +58,8 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
     internal static void ShowWinnerPanel()
     {
         SetActiveGroup(Instance.m_winnerCanvasGroup.name);
+
+        //Also update wait timer for next round
+        WaitTimerUi.Instance.StartCountdown();
     }
 }
