@@ -12,18 +12,10 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
     public TextMeshProUGUI uiText;
     public float waitTime;
 
-    [Button]
-    public void StartCountdown()
+    private void Update()
     {
-        waitTime = 4f;
-        StartCoroutine(CountDown());
-    }
-
-    public IEnumerator CountDown()
-    {
-        while (waitTime >= 0)
+        if (waitTime > 0)
         {
-            //decrease time
             waitTime -= Time.deltaTime;
             waitTime = Mathf.Max(0f, waitTime);
 
@@ -32,7 +24,12 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
 
             //update UI text and format string properly
             uiText.text = "Next Round starts in: " + waitTime.ToString("0.00");
-            yield return null;
         }
+    }
+
+    [Button]
+    public void StartCountdown()
+    {
+        waitTime = 4f;
     }
 }
