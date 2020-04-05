@@ -24,6 +24,8 @@ public class CraneMovementController : MonoBehaviour
     [SerializeField] private List<GameObject> m_GroundChecks = null;
     [SerializeField] private float distanceToCheck = 1f;
 
+    [SerializeField] private EngineSound engineSound;
+
     private Rigidbody m_RigidbodyTracks = null;
     private Rigidbody m_RigidbodyCircle = null;
 
@@ -47,6 +49,7 @@ public class CraneMovementController : MonoBehaviour
         m_CircleToRotate = GetComponentInChildren<CraneMainBody>().gameObject;
         m_RigidbodyTracks = m_TracksToRotate.GetComponent<Rigidbody>();
         m_RigidbodyCircle = m_CircleToRotate.GetComponent<Rigidbody>();
+        engineSound = GetComponentInChildren<EngineSound>();
 
         m_GroundChecks.Clear();
         var groundchecks = GetComponentsInChildren<GroundCheck>();
@@ -117,6 +120,8 @@ public class CraneMovementController : MonoBehaviour
         if (!CheckGround()) { return; }
         m_RigidbodyTracks.velocity += m_TracksToRotate.transform.forward * forwardValue * m_MovementSpeed * Time.deltaTime;
 
+        //interactive engine sound
+        engineSound.UpdateEngineSound(m_RigidbodyTracks.velocity.magnitude);
     }
 
     private bool CheckGround()
