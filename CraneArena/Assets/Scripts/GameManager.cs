@@ -143,20 +143,26 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Winner: "+playerId);
             ScoreTracker.IncreaseScoreByOne(playerId);
 
-            //User interface update
-            WinnerScreenUi.UpdateWinner(playerId);
-            CanvasGroupSwitcher.ShowWinnerPanel();
-            //Check for Game Winner
-            //#TODO: Game Win
+            int maxScore = 5;
+            if (ScoreTracker.GetScore(playerId) >= maxScore)
+            {
+                //player has won the game
+                EndScreenUi.UpdateWinner(playerId);
+                CanvasGroupSwitcher.ShowEndPanel();
+            }
+            else
+            {
+                //next round
+                //User interface update
+                WinnerScreenUi.UpdateWinner(playerId);
+                CanvasGroupSwitcher.ShowWinnerPanel();
 
-            //winner sound effect
-            SoundPlayer.Play(SoundEventEnum.RoundWin);
+                //winner sound effect
+                SoundPlayer.Play(SoundEventEnum.RoundWin);
 
-
-
-            //#TODO: Destroy Player Crane
-            StartCoroutine(StartRoundAfterDelay(4f));//#TODO: add delay with animations
-
+                //#TODO: Destroy Player Crane
+                StartCoroutine(StartRoundAfterDelay(4f));//#TODO: add delay with animations
+            }
         }
     }
 
