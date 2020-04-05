@@ -580,6 +580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating_Dust_Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 180714, guid: 5913908820e9c6b409f79c63faa8ef8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 480714, guid: 5913908820e9c6b409f79c63faa8ef8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6310,6 +6314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2893304908099980566, guid: 6773039f7fff19647bde187a08c2a114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6773039f7fff19647bde187a08c2a114, type: 3}
 --- !u!1001 &893895871
@@ -6607,6 +6616,75 @@ Transform:
   m_Father: {fileID: 934615293}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50.000004, y: 158.78401, z: 0}
+--- !u!1001 &956595115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4975824354298869008, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_Name
+      value: Floating_Dust_Particles new
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975824354299158832, guid: 3c7edfff56c193e4497c8942a4513c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c7edfff56c193e4497c8942a4513c00, type: 3}
 --- !u!1001 &960510508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7182,6 +7260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 2893304908099980566, guid: 6773039f7fff19647bde187a08c2a114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6773039f7fff19647bde187a08c2a114, type: 3}
 --- !u!1001 &1201318098
@@ -7419,6 +7502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893304908099980566, guid: 6773039f7fff19647bde187a08c2a114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6773039f7fff19647bde187a08c2a114, type: 3}

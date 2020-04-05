@@ -20,7 +20,7 @@ public class WinnerScreenUi : MonoBehaviourSingleton<WinnerScreenUi>
         }
         else
         {
-            winString = "Player " + playerId.ToString() + " wins the round!";
+            winString = "Player " + playerId.ToString() + " Won The Round!";
 
         }
         Instance.winnerText.text = winString;
