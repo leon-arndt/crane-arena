@@ -37,4 +37,18 @@ public class SoundPlayer : MonoBehaviour
         AudioClip sound = dictionary.references.Single(s => s.Key == eventEnum).Value;
         AudioManager.CreateTemporarySound(sound);
     }
+
+    /// <summary>
+    /// Similar to the regular Play method but can pass random pitch
+    /// </summary>
+    /// <param name="eventEnum"></param>
+    /// <param name="minPitch"></param>
+    /// <param name=""></param>
+    public static void PlayRandomPitch(SoundEventEnum eventEnum, float minPitch, float floatMaxPitch)
+    {
+        //Find value in dictionary
+        SoundDictionary dictionary = SoundReferences.Instance.soundDictionary;
+        AudioClip sound = dictionary.references.Single(s => s.Key == eventEnum).Value;
+        AudioManager.CreateTemporarySoundRandomPitch(sound);
+    }
 }

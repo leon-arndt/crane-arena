@@ -10,9 +10,11 @@ public class CraneMainBody : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        var col = collision.transform.GetComponent<CraneMainBody>();
+        if (col == null) return;
+
+        SoundPlayer.PlayRandomPitch(SoundEventEnum.Collision, 0.5f, 1.5f);
     }
 }
