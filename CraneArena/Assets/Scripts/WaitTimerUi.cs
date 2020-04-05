@@ -15,7 +15,7 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
     [Button]
     public void StartCountdown()
     {
-        waitTime = 3f;
+        waitTime = 4f;
         StartCoroutine(CountDown());
     }
 
