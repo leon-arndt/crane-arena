@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.6659049, b: 0.30495727, a: 1}
+  m_Color: {r: 0.7830189, g: 0.7276166, b: 0.38781595, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -977,7 +977,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130386988895460548}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90573c9ae0325144e8cb7c666192159c, type: 2}
   m_sharedMaterial: {fileID: -2401320697371042680, guid: 90573c9ae0325144e8cb7c666192159c,
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1:37
+  m_text: 4:20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90573c9ae0325144e8cb7c666192159c, type: 2}
   m_sharedMaterial: {fileID: -2401320697371042680, guid: 90573c9ae0325144e8cb7c666192159c,
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 7498040661810327854}
   - component: {fileID: 2757039160345872494}
   m_Layer: 5
-  m_Name: Red Score
+  m_Name: Green Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.18656306, b: 0.1527234, a: 1}
+  m_Color: {r: 0.28940535, g: 0.6603774, b: 0.109024554, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 1865119736549370551}
   - component: {fileID: 1613582555365661010}
   m_Layer: 5
-  m_Name: Blue Score
+  m_Name: Red Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30588236, g: 0.4263513, b: 0.7254902, a: 1}
+  m_Color: {r: 0.8196079, g: 0.20000002, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90573c9ae0325144e8cb7c666192159c, type: 2}
   m_sharedMaterial: {fileID: -2401320697371042680, guid: 90573c9ae0325144e8cb7c666192159c,
@@ -1985,7 +1985,7 @@ GameObject:
   - component: {fileID: 4181433639213047831}
   - component: {fileID: 8131848361622971723}
   m_Layer: 5
-  m_Name: Green Score
+  m_Name: Blue Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31690222, g: 0.6792453, b: 0.1505874, a: 1}
+  m_Color: {r: 0.21586864, g: 0.56099796, b: 0.7264151, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
