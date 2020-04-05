@@ -22,6 +22,9 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
     [SerializeField]
     CanvasGroup m_winnerCanvasGroup;
 
+    [SerializeField]
+    CanvasGroup m_endCanvasGroup;
+
     private void Start()
     {
         OpenDefaultPanel(); 
@@ -64,5 +67,14 @@ public class CanvasGroupSwitcher : MonoBehaviourSingleton<CanvasGroupSwitcher>
 
         //Also update wait timer for next round
         WaitTimerUi.Instance.StartCountdown();
+    }
+
+    [Button]
+    internal static void ShowEndPanel()
+    {
+        SetActiveGroup(Instance.m_endCanvasGroup.name);
+
+        //reload game scene in a bit
+        SceneLoader.Instance.DelayedReload();
     }
 }
