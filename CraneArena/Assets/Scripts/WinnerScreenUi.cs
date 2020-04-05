@@ -13,7 +13,16 @@ public class WinnerScreenUi : MonoBehaviourSingleton<WinnerScreenUi>
     [Button]
     public static void UpdateWinner(int playerId)
     {
-        string winString = "Player " + playerId.ToString() + " wins the round!";
+        string winString = "";
+        if (playerId == -1)
+        {
+            winString = "Time ran out, no winners today...";
+        }
+        else
+        {
+            winString = "Player " + playerId.ToString() + " wins the round!";
+
+        }
         Instance.winnerText.text = winString;
     }
 }

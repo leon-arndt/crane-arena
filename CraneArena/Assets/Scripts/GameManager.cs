@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             roundOver = true;
 
             CanvasGroupSwitcher.ShowWinnerPanel();
+            WinnerScreenUi.UpdateWinner(-1);
 
             //restart round after delay
             StartCoroutine(StartRoundAfterDelay(4f));
