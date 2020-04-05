@@ -60,24 +60,4 @@ public class ScoreTracker : MonoBehaviourSingleton<ScoreTracker>
             Debug.LogError("ScoreTracker: Bad player ID passed");
         }
     }
-
-    /// <summary>
-    /// Increase the score of the other player
-    /// </summary>
-    /// <param name="sourcePlayerId"></param>
-    public static void IncreaseOtherPlayer(int sourcePlayerId)
-    {
-        if (sourcePlayerId == 0)
-        {
-            IncreaseScoreByOne(1);
-        }
-        else if (sourcePlayerId == 1)
-        {
-            IncreaseScoreByOne(0);
-        }
-        else
-        {
-            Debug.LogError("ScoreTracker: Bad player ID passed");
-        }
-    }
 }

@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Winner: "+playerId);
             ScoreTracker.IncreaseScoreByOne(playerId);
 
+            //User interface update
+            WinnerScreenUi.UpdateWinner(playerId);
             CanvasGroupSwitcher.ShowWinnerPanel();
 
             //#TODO: Destroy Player Crane
