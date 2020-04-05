@@ -15,6 +15,6 @@ public class CraneMainBody : MonoBehaviour
         var col = collision.transform.GetComponent<CraneMainBody>();
         if (col == null) return;
 
-        SoundPlayer.PlayRandomPitch(SoundEventEnum.Collision, 0.5f, 1.5f);
+        //SoundPlayer.PlayRandomPitch(SoundEventEnum.Collision, 0.5f, 1.5f);
     }
 }
