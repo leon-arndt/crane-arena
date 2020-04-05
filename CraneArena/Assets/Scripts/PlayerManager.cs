@@ -28,12 +28,6 @@ public class PlayerManager : MonoBehaviour
     public static event Action<PlayerManager> onPlayerDeath;
     public static event Action<PlayerManager> onPlayerReady;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     internal bool CreateCrane(GameObject craneToInstantiate)
     {
         if (transform.childCount <= 0)

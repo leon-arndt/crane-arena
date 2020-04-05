@@ -11,7 +11,7 @@ public class TimerUi : MonoBehaviourSingleton<TimerUi>
     // Update is called once per frame
     void Update()
     {
-        string minutesAndSeconds = ConvertFloatToMinutesSeconds(GameManager.Instance.timeLeft);
+        string minutesAndSeconds = ConvertFloatToMinutesSeconds(GameManager.Instance.roundTimeLeft);
         m_timerText.text = minutesAndSeconds;
     }
 

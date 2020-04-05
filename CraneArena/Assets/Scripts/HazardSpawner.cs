@@ -36,7 +36,7 @@ public class HazardSpawner : MonoBehaviourSingleton<HazardSpawner>
     /// <returns></returns>
     IEnumerator SpawnHazardRoutine()
     {
-        if (GameManager.Instance.timeLeft > 10f)
+        if (GameManager.Instance.roundTimeLeft > 10f)
         {
             SpawnHazard();
         }

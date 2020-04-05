@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Handles various aspects of the game including the communication of rounds and game states
+/// Reacts to events such as player deaths
+/// </summary>
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public float timeLeft;
+    public float roundTimeLeft;
 
     [SerializeField] private Transform[] m_SpawnPositions = null;
     [SerializeField] private GameObject[] m_CorrespondingCranesToSpawn = null;
@@ -20,20 +24,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public bool HasStarted { get => m_HasStarted; }
     public bool roundOver;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Spawn Players
-        //         var inputManager = GetComponent<PlayerInputManager>();
-        //         if (!inputManager) { return; }
-        //         var player = inputManager.playerPrefab;
-        //         for (int i = 0; i < m_SpawnPositions.Length; i++)
-        //         {
-        // 
-        //         }
-
-        timeLeft = 90f;
-    }
     private void OnEnable()
     {
         PlayerManager.onPlayerDeath += OnPlayerDeath;
@@ -48,25 +38,29 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft > 0 && m_HasStarted)
+        if (roundTimeLeft > 0 && m_HasStarted)
         {
-            //Game Start
-            timeLeft -= Time.deltaTime;
+            //Game has started and time should count down
+            roundTimeLeft -= Time.deltaTime;
 
+            //determine whether to start shrinking
             float shrinkCountDown = 20f;
-            if (timeLeft < shrinkCountDown)
+            if (roundTimeLeft < shrinkCountDown)
             {
                 MapShrinker.Instance.StartShrinking(shrinkCountDown);
             }
         }
-        else if (!roundOver && timeLeft <= 0)
+        else if (!roundOver && roundTimeLeft <= 0)
         {
-            //Game over
+            //Game over through lack of time
             Debug.Log("Time ran out");
-            timeLeft = 0f;
+            roundTimeLeft = 0f;
             roundOver = true;
 
             CanvasGroupSwitcher.ShowWinnerPanel();
+
+            //restart round after delay
+            StartCoroutine(StartRoundAfterDelay(4f));
         }
     }
 
@@ -93,12 +87,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     }
 
     /// <summary>
-    /// 
+    /// Start each round and reset relevant aspects of the game
     /// </summary>
     public void StartRound()
     {
         //start time
-        timeLeft = 45f;
+        roundTimeLeft = 45f;
 
         playersAlive.Clear();
         foreach (var player in m_Players)
