@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779279579833784447}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4254496381369320914
 MeshFilter:
@@ -198,8 +198,6 @@ Transform:
   m_Children:
   - {fileID: 8427127461800229819}
   - {fileID: 4057584733535718852}
-  - {fileID: 7147124918521916605}
-  - {fileID: 258969396208833439}
   - {fileID: 3514262784377080782}
   - {fileID: 1967107740009045356}
   - {fileID: 2002729240867348332}
@@ -207,6 +205,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1397385265984518091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4993655253959566952}
+  - component: {fileID: 7167239320223422518}
+  m_Layer: 0
+  m_Name: Crane Trail Spawn 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4993655253959566952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397385265984518091}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.614, y: -1.043, z: 0.146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4057584733535718852}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &7167239320223422518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397385265984518091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d039620236d35144874db14a6768df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2943930674739615915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5182,6 +5223,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3100549328241281083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6177624458152482488}
+  - component: {fileID: 4441471376551163423}
+  m_Layer: 0
+  m_Name: Crane Trail Spawn 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6177624458152482488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100549328241281083}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.586, y: -1.051, z: 0.146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4057584733535718852}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &4441471376551163423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100549328241281083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d039620236d35144874db14a6768df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5484140362150711232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,7 +5485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779279579833784447}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2751863049727611081
 MeshFilter:
@@ -5605,7 +5689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779279579833784447}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1046944329059171520
 MeshFilter:
@@ -5829,6 +5913,8 @@ Transform:
   - {fileID: 8099796239590031065}
   - {fileID: 2294148620458150869}
   - {fileID: 6228897688653183470}
+  - {fileID: 4993655253959566952}
+  - {fileID: 6177624458152482488}
   m_Father: {fileID: 2779279579833784447}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5991,7 +6077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779279579833784447}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8080413046444220260
 MeshFilter:
@@ -6085,193 +6171,3 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!1001 &96766276229887057
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2779279579833784447}
-    m_Modifications:
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.614
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.026971817
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460387262577542369, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Sources.Array.data[0].sourceTransform
-      value: 
-      objectReference: {fileID: 3189362117318456928}
-    - target: {fileID: 1460387262577542369, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_IsContraintActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8542849661666545456, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Crane Trail (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8542849661666545456, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190681143974973427, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Time
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7ff3e451c0cd4ee489689ba547293e84, type: 3}
---- !u!4 &258969396208833439 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-    type: 3}
-  m_PrefabInstance: {fileID: 96766276229887057}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7052763590650334067
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2779279579833784447}
-    m_Modifications:
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.586
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.026971817
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460387262577542369, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Sources.Array.data[0].sourceTransform
-      value: 
-      objectReference: {fileID: 4676628385703725112}
-    - target: {fileID: 1460387262577542369, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_IsContraintActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8542849661666545456, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Name
-      value: Crane Trail
-      objectReference: {fileID: 0}
-    - target: {fileID: 8542849661666545456, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190681143974973427, guid: 7ff3e451c0cd4ee489689ba547293e84,
-        type: 3}
-      propertyPath: m_Time
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7ff3e451c0cd4ee489689ba547293e84, type: 3}
---- !u!4 &7147124918521916605 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 202595056171018190, guid: 7ff3e451c0cd4ee489689ba547293e84,
-    type: 3}
-  m_PrefabInstance: {fileID: 7052763590650334067}
-  m_PrefabAsset: {fileID: 0}

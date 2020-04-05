@@ -144,12 +144,17 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             //User interface update
             WinnerScreenUi.UpdateWinner(playerId);
             CanvasGroupSwitcher.ShowWinnerPanel();
+            //Check for Game Winner
+            //#TODO: Game Win
 
             //winner sound effect
             SoundPlayer.Play(SoundEventEnum.RoundWin);
 
+
+
             //#TODO: Destroy Player Crane
             StartCoroutine(StartRoundAfterDelay(4f));//#TODO: add delay with animations
+
         }
     }
 
@@ -173,7 +178,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         player.SpawnIndicator();
         playersReady.Add(player);
 
-        if (playersReady.Count != m_Players.Count) { return; }
+        if (playersReady.Count != m_Players.Count || playersReady.Count <=1) { return; }
 
         //Start Game
         StartRound();
