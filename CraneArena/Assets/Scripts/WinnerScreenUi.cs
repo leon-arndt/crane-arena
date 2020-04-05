@@ -20,8 +20,9 @@ public class WinnerScreenUi : MonoBehaviourSingleton<WinnerScreenUi>
         }
         else
         {
+            //increase by 1, since real humans begin counting with 1
+            playerId++;
             winString = "Player " + playerId.ToString() + " Won The Round!";
-
         }
         Instance.winnerText.text = winString;
     }

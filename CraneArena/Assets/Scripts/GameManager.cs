@@ -104,7 +104,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         CanvasGroupSwitcher.ShowGamePanel();
         foreach (var player in m_Players)
         {
-            player.transform.GetChild(0).transform.parent = null;
+            if (HasStarted)
+            {
+                player.transform.GetChild(0).transform.parent = null;
+            }
+            else
+            {
+                //lobby pregame
+                player.transform.GetChild(0).transform.parent = PlayerHolder.Instance.holder;
+            }
             player.Respawn();
         }
 
@@ -177,6 +185,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             Destroy(item.gameObject);
         }
+
+        //destroy all lobby players
+        PlayerHolder.DeleteAll();
 
         //start spawning hazards
         HazardSpawner.Instance.StartSpawning();
