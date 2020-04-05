@@ -60,4 +60,30 @@ public class ScoreTracker : MonoBehaviourSingleton<ScoreTracker>
             Debug.LogError("ScoreTracker: Bad player ID passed");
         }
     }
+
+
+    public static int GetScore(int playerId)
+    {
+        if (playerId == 0)
+        {
+            return Instance.m_player1Score;
+        }
+        else if (playerId == 1)
+        {
+            return Instance.m_player2Score;
+        }
+        else if (playerId == 2)
+        {
+            return Instance.m_player3Score;
+        }
+        else if (playerId == 3)
+        {
+            return Instance.m_player4Score;
+        }
+        else
+        {
+            Debug.LogError("ScoreTracker: Bad player ID passed");
+            return -1;
+        }
+    }
 }

@@ -1304,8 +1304,9 @@ GameObject:
   - component: {fileID: 4435332298938841145}
   - component: {fileID: 3176075911985092913}
   - component: {fileID: 3992808883344419170}
+  - component: {fileID: 5604121842948559020}
   m_Layer: 5
-  m_Name: Winner Panel [Behavior]
+  m_Name: End Panel [Behavior]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1367,6 +1368,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5604121842948559020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3228926377010710828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75398c4bb3f99624cb08b18b1a86b71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winnerText: {fileID: 415534684348393437}
 --- !u!1 &3419403658820131319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1673,7 @@ GameObject:
   - component: {fileID: 7740088820013006635}
   - component: {fileID: 415534684348393437}
   m_Layer: 5
-  m_Name: Winner Text [Referenced]
+  m_Name: End Text [Referenced]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviourSingleton<SceneLoader>
 {
     public void DelayedReload()
     {
-        Invoke("Reload", 2f);
+        Invoke("Reload", 5f);
     }
 
     public void Reload()
