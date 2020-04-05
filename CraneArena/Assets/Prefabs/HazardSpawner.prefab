@@ -55,3 +55,5 @@ MonoBehaviour:
   - {fileID: 2640421484341231040, guid: 8c0f341710c8dd94981e145c8d69865f, type: 3}
   - {fileID: 3938610246290802663, guid: 2e4cd09efce79a8408b91328f32b1516, type: 3}
   - {fileID: 2641532913664760942, guid: 4e230069d7532a748a098a29e2411751, type: 3}
+  centerSpawn: []
+  spawnLocations: []
