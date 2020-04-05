@@ -23,7 +23,6 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
     {
         while (waitTime >= 0)
         {
-
             //decrease time
             waitTime -= Time.deltaTime;
             waitTime = Mathf.Max(0f, waitTime);
@@ -33,7 +32,7 @@ public class WaitTimerUi : MonoBehaviourSingleton<WaitTimerUi>
 
             //update UI text and format string properly
             uiText.text = "Next Round starts in: " + waitTime.ToString("0.00");
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
     }
 }
