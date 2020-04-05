@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 230689930661431800, guid: 144521446fd084e4596b64221143695c,
         type: 3}
       propertyPath: m_Mass
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4884216399495311103, guid: 144521446fd084e4596b64221143695c,
         type: 3}
       propertyPath: m_Name
-      value: Stone_Big
+      value: Stone_Big Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8472222152292621548, guid: 144521446fd084e4596b64221143695c,
         type: 3}
