@@ -157,7 +157,8 @@ public class CraneMovementController : MonoBehaviour
 
         foreach (var check in m_GroundChecks)
         {
-            Debug.DrawRay(check.transform.position, check.transform.up * -1 * distanceToCheck, Color.red);
+           // Debug.DrawRay(Vector3.zero, Vector3.up, Color.red, 100,false);
+           // Debug.DrawRay(check.transform.position, check.transform.up * -1 * distanceToCheck, Color.red);
             var hit = Physics.Raycast(check.transform.position, check.transform.up * -1 * distanceToCheck, 1 << LayerMask.NameToLayer("Ground"));
             if (!hit) { onGround = false; break; }
             else
